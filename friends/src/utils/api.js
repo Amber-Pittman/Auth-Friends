@@ -3,6 +3,11 @@
 // #28 Import axios
 import axios from "axios";
 
+// #60 A helper function so we don't have to keep repeating this
+export function getToken() {
+	return localStorage.getItem("token");
+}
+
 // #29 export a default function of the file
 export default function() {
 	return axios.create({

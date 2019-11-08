@@ -10,39 +10,44 @@ import api from "../utils/api";
 // #34 Start your new function and export it
 function Account(props) {
 	// #37 Create initial State with useState
-	const [user, setUser] = useState({
-		name: "",
-		email: "",
-    })
+	const [friends, setFriends] = useState([])
 
     // #39 Create a side effect with useEffect
 	useEffect(() => {
 		// #41 Make that axios call using api
-		api().get("/me")
+		api().get("/friends")
 			.then(result => {
 				// #42 set user to an object
-				setUser({
-					// while we could have done result.data, we want to be specific 
-					  // due to unknown keys
-					name: result.data.name,
-					email: result.data.email,
-				})
+				setFriends(result.data)
 			})
 			.catch(error => {
-				console.log(error)
+                console.log(error)
+                throw(error)
 			})
 	}, [])
     
     // #35 Build out the Account Page for Display
 	return (
-		<>
-			<h1>My Account</h1>
-
-			<div className="account-row">Name: {user.name}</div>
-			<div className="account-row">Email: {user.email}</div>
-		</>
-	)
-}
+		<div className="account-wrapper">
+            <div className="user">
+			    <h1>My Lambda Profile</h1>
+                <button className="edit">Edit Profile</button>
+            </div>
+            <div className='friends-list'>
+                <h2>My Friends</h2>
+                {friends.map(item => (
+                        <div key={item.id} className='friends'>
+                            <div className='friends-details'>
+                            <h3>{item.name}</h3>
+                            <h3>{item.age}</h3>
+                            <h3 className='email'>{item.email}</h3>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        )
+    }
 
 export default Account;
 

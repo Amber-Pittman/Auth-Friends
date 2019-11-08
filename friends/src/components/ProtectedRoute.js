@@ -2,18 +2,18 @@
 //   logged in
 
 // #47 Import react
-import React from "react"
+import React from "react";
 // #49 Make ProtectedRoute a HOC by returning the Route component or
     //  or a different component called Redirect
-import { Route, Redirect } from "react-router-dom"
+import { Route, Redirect } from "react-router-dom";
 
 // #48 Create a ProtectedRoute for components that require the token
 function ProtectedRoute(props) {
 	
 	const {  // #53 Destructure from props
 		component: Component,
-        ...rest 
-        } = props
+        ...rest
+    } = props
         
 	return (
         // #52 add render to Route

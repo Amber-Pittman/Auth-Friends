@@ -1,19 +1,20 @@
-import React, { useState } from "react"
+import React from "react";
 
 // #3 Define some routes by importing from rrd
 import { Link, Route, withRouter } from "react-router-dom";
+// #62 Import getToken from API
+import { getToken } from "./utils/api";
 // #50 import ProtectedRoute instead of Route
-import ProtectedRoute from "./ProtectedRoute"
+import ProtectedRoute from "./components/ProtectedRoute";
 // #7 import the SignIn component that was created
-import Signin from "./Signin";
+import Signin from "./components/Signin";
 // #47 import the Account component
-import Account from "./Account"
+import Account from "./components/Account";
 
 
-function App(props) {
+function App() {
   const signedIn = getToken();
-  
-	
+  	
 	return (
     <div className="wrapper">
 		{/*  #4 Let's create a nav tag and create some links */}
@@ -44,4 +45,4 @@ function App(props) {
 );
 }
 
-export default App
+export default withRouter(App);

@@ -10,7 +10,7 @@ function Signin(props) {
 
     // #12 Set up some initial state
     const [data, setData] = useState({
-        email: "",
+        username: "",
         password: "",
     })
 
@@ -26,7 +26,6 @@ function Signin(props) {
     }
 
     // #22 We need a handle submit function for our button.
-    
     const handleSubmit = (event) => {
         event.preventDefault()
 
@@ -35,7 +34,7 @@ function Signin(props) {
                 // We are using are axios instance with predefined values,
                 // rather than just plain old axios
         api()
-            .post("/login", data)
+            .post("/api/login", data)
             .then(result => {
                 // #26 Store our new token in local storage so it persists
                 localStorage.setItem("token", result.data.token)

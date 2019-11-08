@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+// #1 install react router
 import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.render(
+    // #2 Wrap app in browser component
     <Router>
         <App />
     </Router>, document.getElementById('root'));

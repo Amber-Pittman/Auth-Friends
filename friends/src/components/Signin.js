@@ -39,7 +39,7 @@ function Signin(props) {
             .then(result => {
                 // #26 Store our new token in local storage so it persists
                 localStorage.setItem("token", result.data.token)
-                // Redirect the user to their account page after logging in
+                // #57 Redirect the user to their account page after logging in
                 props.history.push("/account")
             })
             .catch(err => {

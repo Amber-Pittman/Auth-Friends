@@ -2,8 +2,12 @@ import React, { useState } from "react"
 
 // #3 Define some routes by importing from rrd
 import { Link, Route, withRouter } from "react-router-dom";
+// #50 import ProtectedRoute instead of Route
+import ProtectedRoute from "./ProtectedRoute"
 // #7 import the SignIn component that was created
 import Signin from "./Signin";
+// #47 import the Account component
+import Account from "./Account"
 
 
 function App(props) {
@@ -22,6 +26,8 @@ function App(props) {
 				
 				{/* #19 Add a SignIn Link to the Navigation */}
 				{!signedIn && <Link to='/signin' className='link'>Sign In</Link>}
+				
+				{/* #43 Add an Account Link to the Navigation */}
 				{signedIn && <Link to='/account' className='link'>Account</Link>}
 			</div>
 		</nav>
@@ -29,6 +35,10 @@ function App(props) {
 		{/* #5 Define some routes */}
 		{/* #8 Add Signin component to signin Route */}
 		<Route exact path='/signin' component={Signin} />
+
+		{/* #44 Create Link for Account
+			#45 Add Account component to account Route
+			#51 Change Route to ProtectedRoute */}
 		<ProtectedRoute exact path='/account' component={Account} />
   </div>
 );

@@ -34,7 +34,7 @@ function Signin(props) {
                 // We are using are axios instance with predefined values,
                 // rather than just plain old axios
         api()
-            .post("/api/login", data)
+            .post("/login", data)
             .then(result => {
                 // #26 Store our new token in local storage so it persists
                 localStorage.setItem("token", result.data.token)

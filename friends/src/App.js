@@ -4,12 +4,14 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import './App.css';
 
 import PrivateRoute from "./components/PrivateRoute";
+import Login from "./components/Login";
+import Account from "./components/Account";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <ul>
+       <ul>
           <li>
             <Link to="/login">Login</Link>
           </li>
@@ -18,7 +20,7 @@ function App() {
           </li>
         </ul>
         <Switch>
-          <PrivateRoute exact path="/protected" component={ComponentName} />
+          <PrivateRoute exact path="/protected" component={Account} />
           <Route path="login" component={Login} />
         </Switch>
       </div>

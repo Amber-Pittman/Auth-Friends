@@ -12,7 +12,7 @@ function App() {
   const loggedIn = token;
 
   return (
-    <Router>
+    <Router className="wrapper">
       <nav>
           <div>
             <h2 className='logo'>Lambda Friends</h2>
@@ -22,10 +22,12 @@ function App() {
 
             {!loggedIn && 
               <Link to="/login" className="link">Log In</Link>}
+            {loggedIn && 
+              <Link to="/account" className="link">Account</Link>}
           </div>
       </nav>
       <Route exact path='/login' component={Login} />
-      <Route exact path='/account' />
+      <Route exact path='/account' component={Account} />
     </Router>
   )
 };

@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 function Account(props) {
+    const [friends, setFriends] = useState([])
+
+    useEffect(() => {
+        axiosWithAuth()
+            .get("/friends")
+            .then(result => {
+                setFriends(result.data)
+            })
+            .catch(error => {
+                console.log(error)
+                throw(error)
+            })
+    }, [])
+
     return (
         <div>
             <div className="user">

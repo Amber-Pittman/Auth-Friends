@@ -27,7 +27,7 @@ function App() {
           </div>
       </nav>
       <Route exact path='/login' component={Login} />
-      <Route exact path='/account' component={Account} />
+      <PrivateRoute exact path='/account' component={Account} />
     </Router>
   )
 };

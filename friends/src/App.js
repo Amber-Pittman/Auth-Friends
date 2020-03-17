@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { axiosWithAuth } from "./utils/axiosWithAuth";
 
 import './App.css';
 
@@ -8,24 +9,25 @@ import Login from "./components/Login";
 import Account from "./components/Account";
 
 function App() {
+  const loggedIn = token;
+
   return (
     <Router>
-      <div className="App">
-       <ul>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to "/protected">Friends Only!</Link>
-          </li>
-        </ul>
-        <Switch>
-          <PrivateRoute exact path="/protected" component={Account} />
-          <Route path="login" component={Login} />
-        </Switch>
-      </div>
-    </Router>
-  );
-}
+      <nav>
+          <div>
+            <h2 className='logo'>Lambda Friends</h2>
+          </div>
+          <div>
+            <Link to='/' className='link'>Home</Link>
 
-export default App;
+            {!loggedIn && 
+              <Link to="/login" className="link">Log In</Link>}
+          </div>
+      </nav>
+      <Route exact path='/login' component={Login} />
+      <Route exact path='/account' />
+    </Router>
+  )
+};
+
+export default withRouter(App);

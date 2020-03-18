@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import { axiosWithAuth } from "./utils/axiosWithAuth";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import axiosWithAuth from "./utils/axiosWithAuth";
 
 import './App.css';
 
@@ -9,7 +9,7 @@ import Login from "./components/Login";
 import Account from "./components/Account";
 
 function App() {
-  const loggedIn = token;
+  const loggedIn = axiosWithAuth;
 
   return (
     <Router className="wrapper">

@@ -21,8 +21,9 @@ function Login(props) {
         axiosWithAuth()
             .post("/login", data)
             .then(result => {
-                localStorage.setItem("token", result.data.token)
-                props.history.push("/account")
+               localStorage.setItem("token", result.data.payload)
+               props.history.push("/account")
+               console.log(result);
             })
             .catch(err => {
                 setError(err.response.data.message)

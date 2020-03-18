@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import axiosWithAuth from "./utils/axiosWithAuth";
+import { axiosWithAuth } from "./utils/axiosWithAuth";
 
 import './App.css';
 
@@ -32,4 +32,4 @@ function App() {
   )
 };
 
-export default withRouter(App);
+export default App;

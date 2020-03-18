@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import  { axiosWithAuth }  from "../utils/axiosWithAuth";
 
 function Account(props) {
     const [friends, setFriends] = useState([])
@@ -9,6 +9,7 @@ function Account(props) {
             .get("/friends")
             .then(result => {
                 setFriends(result.data)
+                console.log(result.data)
             })
             .catch(error => {
                 console.log(error)
